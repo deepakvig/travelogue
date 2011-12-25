@@ -1,0 +1,9 @@
+= semantic_form_for [@article, @article.comments.new], :remote => true, :html => { :style => 'display:none;'} do |f|
+  .field
+    = f.input :screen_name
+  .field
+    = f.input :email
+  .field
+    = f.input :content
+  .actions
+    = f.submit "Add"

@@ -10,7 +10,7 @@ class Ability
       can :read, :all
       can :create, Comment
       can :update, Comment do |comment|
-        comment.try(:user) == user #|| user.role?(:moderator)
+        comment.email == user #|| user.role?(:moderator)
       end
       #if user.role?(:author)
         #can :create, Article

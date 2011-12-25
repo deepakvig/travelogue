@@ -27,7 +27,6 @@ class ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @article }
@@ -43,6 +42,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(params[:article])
+    @article.user = current_user
 
     if @article.valid?
       if @article.publish

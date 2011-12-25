@@ -1,0 +1,9 @@
+= div_for comment do
+  h3
+    = "#{comment.screen_name} <#{comment.email}>"
+    span.actions
+      - if can? :update, comment
+        = link_to 'Delete', article_comment_path(:article_id => @article,:id => comment), :confirm => "Are you Sure?", :method => :delete
+  = simple_format comment.content
+  
+      

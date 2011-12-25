@@ -22,6 +22,7 @@ gem 'ckeditor'
 # File
 gem 'carrierwave', '~> 0.5.7'
 gem 'rmagick'
+gem 'mini_magick'
 
 # Gems used only for assets and not required
 # in production environments by default.

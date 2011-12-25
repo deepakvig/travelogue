@@ -1,5 +1,7 @@
 Travelogue::Application.routes.draw do
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 
   devise_for :users
 

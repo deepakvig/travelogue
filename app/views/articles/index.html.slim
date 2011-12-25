@@ -12,7 +12,7 @@ table
   - @articles.each do |article|
     tr
       td= article.title
-      td= article.content
+      td= raw article.content
       td= article.user
       td= link_to 'Show', article
       - if can? :update, article
