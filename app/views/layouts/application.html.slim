@@ -1,0 +1,35 @@
+doctype html
+'<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+ <!--[if IE 7]> <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+ <!--[if IE 8]> <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+ <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+head
+  title Testing
+  /! Grab Modernizer, with a protocol relative URL; fall back to local if offline
+  /! script src="http://www.modernizr.com/downloads/modernizr-2.0.6.js"
+  /! script window.jQuery || document.write('<script src="/assets/modernizr-2.0.6.js"><\/script>')
+  = javascript_include_tag 'modernizr-2.0.6'
+
+  = stylesheet_link_tag "application"
+  = yield(:stylesheets)
+  = javascript_include_tag "application"
+  = yield(:javascripts)
+  = csrf_meta_tags
+  = yield(:head)
+
+body
+  #user_nav
+    - if user_signed_in?
+      Signed in as #{current_user.email}. Not you?
+      = link_to "Sign out", destroy_user_session_path, :method => :delete
+    - else
+      = link_to "Sign up", new_user_registration_path 
+      or 
+      = link_to "sign in", new_user_session_path
+
+
+  .maincontentwrapper
+    section.maincontent.clearfix
+      = content_for?(:content) ? yield(:content) : yield
+
