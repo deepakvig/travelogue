@@ -3,6 +3,8 @@ class CreateArticles < ActiveRecord::Migration
     create_table :articles do |t|
       t.string :title
       t.text :content
+      t.boolean :publish, :default => false
+      t.datetime :published_at
       t.references :user
 
       t.timestamps

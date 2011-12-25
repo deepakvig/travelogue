@@ -44,6 +44,11 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(params[:article])
 
+    if @article.valid?
+      if @article.publish
+        @article.published_at = Time.now
+      end
+    end
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -62,6 +67,15 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
+        @article = Article.find(params[:id])
+	if @article.valid?
+	  if @article.publish
+	    @article.published_at = Time.now
+	  else
+            @article.published_at = nil
+	  end
+	  @article.save
+	end
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { head :ok }
       else

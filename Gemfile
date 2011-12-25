@@ -18,7 +18,7 @@ gem 'dynamic_form', '~> 1.1.4'
 gem 'better_tabs', :git => 'git://github.com/crypsis/better_tabs.git'
 gem 'bootstrap_rails_helpers', :git => 'git://github.com/crypsis/bootstrap_rails_helpers.git'
 gem 'bootstrap_for_formtastic', :git => 'git://github.com/crypsis/bootstrap_for_formtastic.git'
-
+gem 'ckeditor'
 # File
 gem 'carrierwave', '~> 0.5.7'
 gem 'rmagick'

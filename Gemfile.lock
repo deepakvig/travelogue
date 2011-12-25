@@ -57,6 +57,9 @@ GEM
     cancan (1.6.7)
     carrierwave (0.5.8)
       activesupport (~> 3.0)
+    ckeditor (3.6.3)
+      mime-types (~> 1.16)
+      orm_adapter (~> 0.0.5)
     client_side_validations (3.0.12)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
@@ -163,6 +166,7 @@ DEPENDENCIES
   bootstrap_rails_helpers!
   cancan
   carrierwave (~> 0.5.7)
+  ckeditor
   client_side_validations (~> 3.0.0)
   coffee-rails (~> 3.1.1)
   devise
