@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /articles
   # GET /articles.json
   def index
