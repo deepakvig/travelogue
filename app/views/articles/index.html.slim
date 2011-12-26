@@ -4,7 +4,7 @@ h1 My Travel Experiences
 
 .blog_posts
   - @articles.each do |article|
-    .blog-post
+    .blog-post.well
       h2= link_to article.title, article
       .date Posted by #{article.user.email} on #{article.published_at.to_date},
       .all_articles_content
