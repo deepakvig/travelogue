@@ -20,23 +20,27 @@ head
   = yield(:head)
 
 body
-  #user_nav
-    h1= link_to "Blog", root_path
-    #user_bar
-      - if user_signed_in?
-        #login_message Signed in as #{current_user.email}. Not you?
-        = link_to "Sign out", destroy_user_session_path, :method => :delete
-      - else
-        = link_to "Sign up", new_user_registration_path 
-        = " or " 
-        = link_to "sign in", new_user_session_path
+  .container
+    = render 'common/header'
 
-  #main
-    = content_tag :p, notice, :class => 'notice' if notice.present?
-    = content_tag :p, alert, :class => 'alert' if alert.present?
+    #navigation
+      .topbar-wrapper
+        .topbar
+          .topbar-inner
+            .container
+              h3= link_to "Blog", root_path
+              .pull-right
+                ul.nav
+                  - if user_signed_in?
+                    li Signed in as #{current_user.email}. Not you?
+                    li = link_to "Sign out", destroy_user_session_path, :method => :delete
+                  - else
+                    li #{link_to "Sign up", new_user_registration_path} 
+                    li #{link_to "sign in", new_user_session_path}
 
     .maincontentwrapper
-      section.maincontent.clearfix
-        = content_for?(:content) ? yield(:content) : yield
+        section.maincontent.clearfix
+          = render 'common/flash'
+          = content_for?(:content) ? yield(:content) : yield
 
-  #footer My Travel Blog
+    = render 'common/footer'
