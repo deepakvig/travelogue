@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.order("published_at DESC").page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb

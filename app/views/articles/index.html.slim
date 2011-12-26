@@ -1,5 +1,7 @@
 h1 Listing articles
 
+= paginate @articles
+
 table
   tr
     th Title
@@ -13,7 +15,7 @@ table
     tr
       td= article.title
       td= raw article.content
-      td= article.user
+      td= article.user.email
       td= link_to 'Show', article
       - if can? :update, article
         td= link_to 'Edit', edit_article_path(article)
