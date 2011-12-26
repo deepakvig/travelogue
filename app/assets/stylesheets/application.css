@@ -36,3 +36,41 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.blog-posts {
+  display: inline;
+  float: left;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-top: 15px;
+  width: 295px;
+}
+
+.blog-post {
+  /*background: url("postbg.jpg") no-repeat scroll left top #202931;*/
+  float: left;
+  height: 200px;
+  margin: 10px 0;
+  width: 490px;
+}
+
+.blog-post h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 0 60px;
+  font-color: white;
+}
+
+.date {
+  display: inline;
+  font-size: 10px;
+  margin-left: 60px;
+}
+
+.container_bg {
+  /*background: none repeat scroll 0 0 #3A4954;*/
+  border: 1px solid #485865;
+  margin: 0 auto 60px;
+  padding-bottom: 20px;
+  width: 940px;
+}

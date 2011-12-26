@@ -1,27 +1,21 @@
-h1 Listing articles
+h1 My Travel Experiences
 
 = paginate @articles
 
-table
-  tr
-    th Title
-    th Content
-    th User
-    th
-    th
-    th
-
+.blog_posts
   - @articles.each do |article|
-    tr
-      td= article.title
-      td= raw article.content
-      td= article.user.email
-      td= link_to 'Show', article
-      - if can? :update, article
-        td= link_to 'Edit', edit_article_path(article)
-      - if can? :destroy, article
-        td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+    .blog-post
+      h2= link_to article.title, article
+      .date Posted by #{article.user.email} on #{article.published_at.to_date},
+      .all_articles_content
+        = raw article.content
+      .all_articles_user_email
+        = article.user.email
+        - if can? :update, article
+          td= link_to ' Edit ', edit_article_path(article)
+        - if can? :destroy, article
+          td= link_to ' Destroy ', article, :confirm => 'Are you sure?', :method => :delete
 
-br
-- if can? :create, Article
-  = link_to 'New Article', new_article_path
+  br
+  - if can? :create, Article
+    = link_to 'New Article', new_article_path, :class => "btn primary"
